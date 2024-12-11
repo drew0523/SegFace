@@ -131,6 +131,7 @@ Download the trained weights from [HuggingFace](https://huggingface.co/kartiknar
 ### Training
 ```python
 NCCL_P2P_DISABLE=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 --master_port=29440 /data/knaraya4/SegFace/train.py \
+    --ckpt_path ckpts \
     --expt_name swin_base_celeba_512 \
     --dataset celebamask_hq \
     --backbone segface_celeb \
@@ -168,7 +169,7 @@ NCCL_P2P_DISABLE=1 CUDA_VISIBLE_DEVICES=0 python /data/knaraya4/SegFace/test.py 
     --model <model_name> \
     --input_resolution 512 \
     --test_bs 1 \
-    --model_path /mnt/store/knaraya4/SegFace/ckpts/<expt_name>/model_299.pt
+    --model_path [LOG_PATH]/<ckpt_path>/<expt_name>/model_299.pt
 
 
 # --dataset celebamask_hq

@@ -6,7 +6,7 @@ NCCL_P2P_DISABLE=1 CUDA_VISIBLE_DEVICES=0 python /data/knaraya4/SegFace/test.py 
     --model <model_name> \
     --input_resolution 512 \
     --test_bs 1 \
-    --model_path /mnt/store/knaraya4/SegFace/ckpts/<expt_name>/model_299.pt
+    --model_path [LOG_PATH]/<ckpt_path>/<expt_name>/model_299.pt
 
 
 # --dataset celebamask_hq

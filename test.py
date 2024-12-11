@@ -57,7 +57,7 @@ def test(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ckpt_path", type=str)
+    parser.add_argument("--ckpt_path", type=str, default="ckpts")
     parser.add_argument("--expt_name", type=str)
     parser.add_argument("--dataset", type=str)
     parser.add_argument("--backbone", type=str)

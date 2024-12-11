@@ -1,4 +1,5 @@
 NCCL_P2P_DISABLE=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 --master_port=29440 /data/knaraya4/SegFace/train.py \
+    --ckpt_path ckpts \
     --expt_name swin_base_lapa_512 \
     --dataset lapa \
     --backbone segface_lapa \
