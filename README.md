@@ -103,6 +103,22 @@ Arrange the dataset in the following manner:
     ├── train/
     └── val/
 ```
+| Arch | Resolution | Dataset         | Link                                                                            | Mean F1 |
+|------|------------|-----------------|---------------------------------------------------------------------------------|---------|
+| ConvNext  | 512 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/convnext_celeba_512) | 89.22 |
+| EfficientNet  | 512 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/efficientnet_celeba_512) | 88.94 |
+| MobileNet  | 512 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/mobilenet_celeba_512) | 87.91 |
+| ResNet100  | 512 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/resnet_celeba_512) | 87.50 |
+| Swin_Base  | 224 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_celeba_224) | 87.47 |
+| Swin_Base  | 256 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_celeba_256) | 87.66 |
+| Swin_Base | 448 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_celeba_448) | 88.77 |
+| Swin_Base | 512 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_celeba_512) | 88.96 |
+| Swinv2_Base | 512 | CelebAMask-HQ  | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinv2b_celeba_512) | 88.73 |
+| | | | | |
+| Swin_Base | 224 | LaPa | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_lapa_224) | 92.50 |
+| Swin_Base | 256 | LaPa | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_lapa_256) | 92.61 |
+| Swin_Base | 448 | LaPa | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_lapa_448) | 93.03 |
+| Swin_Base | 512 | LaPa | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_lapa_512) | 93.03 |
 
 # Download Model weights
 The pre-traind model can be downloaded manually from [HuggingFace](https://huggingface.co/kartiknarayan/SegFace) or using python:
