@@ -109,20 +109,21 @@ The pre-traind model can be downloaded manually from [HuggingFace](https://huggi
 ```python
 from huggingface_hub import hf_hub_download
 
-# Finetuned Weights
-
-# The filename "swin_arcface_webface4m_tinyface" indicates that the model has a swin bakcbone and pretraind
-# on webface4m dataset with arcface loss function and finetuned on tinyface.
-hf_hub_download(repo_id="kartiknarayan/petalface", filename="swin_arcface_webface4m_tinyface/model.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/petalface", filename="swin_cosface_webface4m_tinyface/model.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/petalface", filename="swin_cosface_webface4m_briar/model.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/petalface", filename="swin_cosface_webface12m_briar/model.pt", local_dir="./weights")
-
-# Pre-trained Weights
-hf_hub_download(repo_id="kartiknarayan/petalface", filename="swin_arcface_webface4m/model.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/petalface", filename="swin_cosface_webface4m/model.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/petalface", filename="swin_arcface_webface12m/model.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/petalface", filename="swin_cosface_webface12m/model.pt", local_dir="./weights")
+# The filename "convnext_celeba_512" indicates that the model has a convnext bakcbone and trained
+# on celeba dataset at 512 resolution.
+hf_hub_download(repo_id="kartiknarayan/segface", filename="convnext_celeba_512/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/segface", filename="efficientnet_celeba_512/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/segface", filename="mobilenet_celeba_512/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/segface", filename="resnet_celeba_512/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_celeba_224/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_celeba_256/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_celeba_448/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_celeba_512/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_lapa_224/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_lapa_256/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_lapa_448/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_lapa_512/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/segface", filename="swinv2b_celeba_512/model_299.pt", local_dir="./weights")
 ```
 
 # Usage
@@ -156,7 +157,7 @@ NCCL_P2P_DISABLE=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_nod
 # LaPa: --model segface_lapa --dataset lapa
 # Helen: --model segface_helen --dataset helen
 ```
-The trained models are stored at [LOG_PATH]/<expt_name>.<br>
+The trained models are stored at [LOG_PATH]/<ckpt_path>/<expt_name>.<br>
 <b>NOTE</b>: The training scripts are provided at [SegFace/scripts](scripts).
 
 ### Inference
