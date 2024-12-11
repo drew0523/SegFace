@@ -105,29 +105,29 @@ Arrange the dataset in the following manner:
 ```
 
 # Download Model weights
-The pre-traind model can be downloaded manually from [HuggingFace](https://huggingface.co/kartiknarayan/segface) or using python:
+The pre-traind model can be downloaded manually from [HuggingFace](https://huggingface.co/kartiknarayan/SegFace) or using python:
 ```python
 from huggingface_hub import hf_hub_download
 
 # The filename "convnext_celeba_512" indicates that the model has a convnext bakcbone and trained
 # on celeba dataset at 512 resolution.
-hf_hub_download(repo_id="kartiknarayan/segface", filename="convnext_celeba_512/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/segface", filename="efficientnet_celeba_512/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/segface", filename="mobilenet_celeba_512/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/segface", filename="resnet_celeba_512/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_celeba_224/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_celeba_256/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_celeba_448/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_celeba_512/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_lapa_224/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_lapa_256/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_lapa_448/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/segface", filename="swinb_lapa_512/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/segface", filename="swinv2b_celeba_512/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/SegFace", filename="convnext_celeba_512/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/SegFace", filename="efficientnet_celeba_512/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/SegFace", filename="mobilenet_celeba_512/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/SegFace", filename="resnet_celeba_512/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_celeba_224/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_celeba_256/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_celeba_448/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_celeba_512/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_lapa_224/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_lapa_256/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_lapa_448/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_lapa_512/model_299.pt", local_dir="./weights")
+hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinv2b_celeba_512/model_299.pt", local_dir="./weights")
 ```
 
 # Usage
-Download the trained weights from [HuggingFace](https://huggingface.co/kartiknarayan/segface) and ensure the data is downloaded with appropriate directory structure.<br>
+Download the trained weights from [HuggingFace](https://huggingface.co/kartiknarayan/SegFace) and ensure the data is downloaded with appropriate directory structure.<br>
 
 ### Training
 ```python
