@@ -52,7 +52,7 @@ def train(args):
         log_root.info("---"*15)
 
     #Dataloader
-    train_dataloader = get_loader(args, args.dataset, "train", args.train_bs, args.val_bs, args.test_bs, local_rank, args.seed, args.num_workers)
+    train_dataloader, num_classes = get_loader(args, args.dataset, "train", args.train_bs, args.val_bs, args.test_bs, local_rank, args.seed, args.num_workers)
     val_dataloaders, val_names = get_loader(args, args.dataset, "val", args.train_bs, args.val_bs, args.test_bs, local_rank, args.seed, args.num_workers)
     if rank==0: log_root.info("Data Loaded")
 
@@ -71,7 +71,7 @@ def train(args):
     # Loss Functions
     ## Segmentation Loss
     seg_ce_loss = CrossEntropyLoss()
-    dice_loss = DiceLoss(len(train_dataloader.label_names))    
+    dice_loss = DiceLoss(num_classes)    
 
     #If resume
     start_epoch = 0
