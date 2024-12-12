@@ -50,7 +50,7 @@ The key contributions of our work are,<br>
 Figure 2. The proposed architecture, <i>SegFace</i>, addresses face segmentation by enhancing the performance on long-tail classes through a transformer-based approach. Specifically, multi-scale features are first extracted from an image encoder and then fused using an MLP fusion module to form face tokens. These tokens, along with class-specific tokens, undergo self-attention, face-to-token, and token-to-face cross-attention operations, refining both class and face tokens to enhance class-specific features. Finally, the upscaled face tokens and learned class tokens are combined to produce segmentation maps for each facial region.
 
 # :rocket: News
-- [12/09/2025] 🔥 We release *SegFace*.
+- [12/11/2025] 🔥 We release *SegFace*.
 
 # Installation
 ```bash
