@@ -208,11 +208,14 @@ NCCL_P2P_DISABLE=1 CUDA_VISIBLE_DEVICES=0 python /data/knaraya4/SegFace/test.py 
 If you find *SegFace* useful for your research, please consider citing us:
 
 ```bibtex
-@article{narayan2024segface,
-  title={SegFace: Face Segmentation of Long-Tail Classes},
-  author={Narayan, Kartik and VS, Vibashan and Patel, Vishal M},
-  journal={arXiv preprint arXiv:2412.08647},
-  year={2024}
+@inproceedings{narayan2025segface,
+  title={Segface: Face segmentation of long-tail classes},
+  author={Narayan, Kartik and Vs, Vibashan and Patel, Vishal M},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={39},
+  number={6},
+  pages={6182--6190},
+  year={2025}
 }
 ```
 
