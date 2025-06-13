@@ -63,12 +63,14 @@ Open Data CelebAMask-HQ:<br>
 ![image](https://github.com/user-attachments/assets/a81ab117-bcaa-4314-80e2-1520163afd97)
 
 (ex. hair)
-
-![image](https://github.com/user-attachments/assets/0a31b790-b4c2-4b5a-b912-5340709df241)
+<p width="100%">
+  <img src='https://github.com/user-attachments/assets/0a31b790-b4c2-4b5a-b912-5340709df241' height="50%" width="50%">
+</p>
 
 (ex. nose)
-
-![image](https://github.com/user-attachments/assets/6fd45cb4-fb6e-4277-bcfe-bb92f7eacaf2)
+<p width="100%">
+  <img src='https://github.com/user-attachments/assets/6fd45cb4-fb6e-4277-bcfe-bb92f7eacaf2' height="50%" width="50%">
+</p>
 
 
 Pretrained weight from huggingface
