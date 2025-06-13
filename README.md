@@ -1,124 +1,77 @@
 <div align="center">
 
 # *SegFace* : Face Segmentation of Long-Tail Classes
-<h3><strong>AAAI 2025</strong></h3>
-
-[Kartik Narayan](https://kartik-3004.github.io/portfolio/) &emsp; [Vibashan VS](https://vibashan.github.io) &emsp; [Vishal M. Patel](https://engineering.jhu.edu/faculty/vishal-patel/)
-
-Johns Hopkins University
-
-<a href='https://kartik-3004.github.io/SegFace/'><img src='https://img.shields.io/badge/Project-Page-blue'></a>
-<a href='https://arxiv.org/abs/2412.08647'><img src='https://img.shields.io/badge/Paper-arXiv-red'></a>
-<a href='https://huggingface.co/kartiknarayan/SegFace'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-orange'></a>
+<h3><strong>[Official Github](https://github.com/Kartik-3004/SegFace)</strong></h3>
 
 </div>
 <hr />
-
-## Contributions
-
-<p align="center" width="100%">
-  <img src='docs/static/images/qualitative_results_1.png' height="75%" width="75%">
-</p>
-
-Figure 1. The qualitative comparison highlights the superior performance of our method, <i>SegFace</i>, compared to DML-CSR. In (a), SegFace effectively segments both long-tail classes like earrings and necklaces as well as head classes such as hair and neck. In (b), it also excels in challenging scenarios involving multiple faces, human-resembling features, poor lighting, and occlusion, where DML-CSR struggles.
-
-The key contributions of our work are,<br>
-1️⃣ We introduce a lightweight transformer decoder with learnable class-specific tokens, that ensures each token is dedicated to a specific class, thereby enabling independent modeling of classes. The design effectively addresses the challenge of poor segmentation performance of long-tail classes, prevalent in existing methods.<br>
-2️⃣ Our multi-scale feature extraction and MLP fusion strategy, combined with a transformer decoder that leverages learnable class-specific tokens, mitigates the dominance of head classes during training and enhances the feature representation of long-tail classes.<br>
-3️⃣ <i>SegFace</i> establishes a new state-of-the-art performance on the LaPa dataset (93.03 mean F1 score) and the CelebAMask-HQ dataset (88.96 mean F1 score). Moreover, our model can be adapted for fast inference by simply swapping the backbone with a MobileNetV3 backbone. The mobile version achieves a mean F1 score of 87.91 on the CelebAMask-HQ dataset with 95.96 FPS.<br>
-
-> **<p align="justify"> Abstract:** *Face parsing refers to the semantic segmentation of human faces into
-> key facial regions such as eyes, nose, hair, etc. It serves as a prerequisite for various advanced applications,
-> including face editing, face swapping, and facial makeup, which often require segmentation masks for classes
-> like eye-glasses, hats, earrings, and necklaces. These infrequently occurring classes are called long-tail
-> classes, which are over-shadowed by more frequently occurring classes known as head classes. Existing methods,
-> primarily CNN-based, tend to be dominated by head classes during training, resulting in suboptimal representation
-> for long-tail classes. Previous works have largely overlooked the problem of poor segmentation performance of
-> long-tail classes. To address this issue, we propose SegFace, a simple and efficient approach that uses a
-> lightweight transformer-based model which utilizes learnable class-specific tokens. The transformer decoder
-> leverages class-specific tokens, allowing each token to focus on its corresponding class, thereby enabling
-> independent modeling of each class. The proposed approach improves the performance of long-tail classes, thereby
-> boosting overall performance. To the best of our knowledge, SegFace is the first work to employ transformer models
-> for face parsing. Moreover, our approach can be adapted for low-compute edge devices, achieving 95.96 FPS. We
-> conduct extensive experiments demonstrating that SegFace significantly outperforms previous state-of-the-art models,
-> achieving a mean F1 score of 88.96 (+2.82) on the CelebAMask-HQ dataset and 93.03 (+0.65) on the LaPa dataset.* </p>
 
 # Framework
 <p align="center" width="100%">
   <img src='docs/static/images/segface.png' height="75%" width="75%">
 </p>
-Figure 2. The proposed architecture, <i>SegFace</i>, addresses face segmentation by enhancing the performance on long-tail classes through a transformer-based approach. Specifically, multi-scale features are first extracted from an image encoder and then fused using an MLP fusion module to form face tokens. These tokens, along with class-specific tokens, undergo self-attention, face-to-token, and token-to-face cross-attention operations, refining both class and face tokens to enhance class-specific features. Finally, the upscaled face tokens and learned class tokens are combined to produce segmentation maps for each facial region.
-
-# :rocket: News
-- [12/11/2024] 🔥 We release *SegFace*.
+Figure 2. 전체적인 구조. 이미지를 입력으로 넣어 Backbone network을 통해 multi-scale feture를 추출하고 MLP와 최종 decoder를 거쳐 class 별 segmentation 수행. 해당 아키텍처에서의 Backbone network을 바탕으로 아래의 pretrained model download 및 training 진행.
 
 # Installation
 ```bash
+git clone https://github.com/Kartik-3004/SegFace
+cd SegFace
+
 conda env create --file environment.yml
 conda activate segface
 
-# Create a .env file inside the main directory (SegFace) and setup LOG_PATH, DATA_PATH and ROOT_PATH in the .env file.
-# Provided below is an example which we used as per our directory structure.
+#.env file 을 현재 main 디렉토리 (SegFace) 생성 및 LOG_PATH, DATA_PATH, ROOT_PATH를 .env file에 setup
+# 아래 예시.
 # DATA_PATH: Path to your dataset folder.
 # ROOT_PATH: Path to your code directory.
 # LOG_PATH: Path where the model checkpoints are stored and the training is logged.
 
+# ex )
 touch .env
-echo 'ROOT_PATH=/data/knaraya4/SegFace' >> .env
-echo 'DATA_PATH=/data/knaraya4/data/SegFace' >> .env
-echo 'LOG_PATH=/mnt/store/knaraya4/SegFace' >> .env
+echo 'ROOT_PATH=../SegFace' >> .env
+echo 'DATA_PATH=../SegFace/data' >> .env
+echo 'LOG_PATH=../SegFace/ckpts' >> .env
 ```
 
-# Download Data
-The datasets can be downloaded from their respective webpages or by mailing the authors:<br>
-1. [CelebAMask-HQ](https://mmlab.ie.cuhk.edu.hk/projects/CelebA/CelebAMask_HQ.html)<br>
-2. [LaPa](https://github.com/jd-opensource/lapa-dataset)<br>
-3. [Helen](https://github.com/zhfe99/helen)<br>
+# Data (예시)
+Open Data CelebAMask-HQ:<br>
+[CelebAMask-HQ](https://mmlab.ie.cuhk.edu.hk/projects/CelebA/CelebAMask_HQ.html)<br>
+위 모델은 해당 데이터를 기반으로 학습한 것으로 custom data도 해당 방식으로 구성
 
-Arrange the dataset in the following manner:
+아래의 구조로 데이터셋 디렉토리 구성:
 ```python
 [DATA_PATH]/SegFace/
 ├── CelebAMask-HQ/
 │   ├── CelebA-HQ-img/
-│   ├── CelebA-HQ-to-CelebA-mapping.txt
-│   ├── CelebAMask-HQ-attribute-anno.txt
 │   ├── CelebAMask-HQ-mask-anno/
-│   ├── CelebAMask-HQ-pose-anno.txt
-│   ├── list_eval_partition.txt
-│   └── README.txt
-├── helen/
-│   ├── f1_score.py
-│   ├── label_names.txt
-│   ├── landmarks.txt
-│   ├── list_68pt_rect_attr_test.txt
-│   ├── list_68pt_rect_attr_train.txt
-│   ├── list_annos_trn.txt
-│   ├── list_annos_tst.txt
-│   ├── README.md
-│   ├── test/
-│   ├── test_resize/
-│   └── train/
-└── LaPa/
-    ├── test/
-    ├── train/
-    └── val/
+    └── list_eval_partition.txt
+
 ```
+- CelebA-HQ-img : 실제 이미지 폴더
+- CelebAMask-HQ-mask-anno: 각 이미지 별 얼굴 부위에 대한 mask 이미지
+- list_eval_partition.txt: train/val/test 분할 정보 ex) 00001 0   # 각 이미지 ID에 대해 0=train, 1=val, 2=test
+
+가령 아래의 이미지에 대해 각 부위에 대한 마스크 별로 필요함. 
+
+(input image)
+![image](https://github.com/user-attachments/assets/97855ae0-9285-4e00-9563-bb335479dc2f)
+
+(input image에 대한 mask-anno)
+![image](https://github.com/user-attachments/assets/a81ab117-bcaa-4314-80e2-1520163afd97)
+
+(ex. hair)
+![image](https://github.com/user-attachments/assets/0a31b790-b4c2-4b5a-b912-5340709df241)
+
+(ex. nose)
+![image](https://github.com/user-attachments/assets/6fd45cb4-fb6e-4277-bcfe-bb92f7eacaf2)
+
+
+Pretrained weight from huggingface
 | Arch | Resolution | Dataset         | Link                                                                            | Mean F1 |
 |------|------------|-----------------|---------------------------------------------------------------------------------|---------|
 | ConvNext  | 512 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/convnext_celeba_512) | 89.22 |
-| EfficientNet  | 512 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/efficientnet_celeba_512) | 88.94 |
-| MobileNet  | 512 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/mobilenet_celeba_512) | 87.91 |
-| ResNet100  | 512 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/resnet_celeba_512) | 87.50 |
-| Swin_Base  | 224 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_celeba_224) | 87.47 |
-| Swin_Base  | 256 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_celeba_256) | 87.66 |
-| Swin_Base | 448 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_celeba_448) | 88.77 |
-| Swin_Base | 512 | CelebAMask-HQ     | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_celeba_512) | 88.96 |
-| Swinv2_Base | 512 | CelebAMask-HQ  | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinv2b_celeba_512) | 88.73 |
-| | | | | |
-| Swin_Base | 224 | LaPa | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_lapa_224) | 92.50 |
-| Swin_Base | 256 | LaPa | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_lapa_256) | 92.61 |
-| Swin_Base | 448 | LaPa | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_lapa_448) | 93.03 |
-| Swin_Base | 512 | LaPa | [HuggingFace](https://huggingface.co/kartiknarayan/SegFace/tree/main/swinb_lapa_512) | 93.03 |
+
+
 
 # Download Model weights
 The pre-traind model can be downloaded manually from [HuggingFace](https://huggingface.co/kartiknarayan/SegFace) or using python:
