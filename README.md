@@ -88,22 +88,10 @@ from huggingface_hub import hf_hub_download
 # The filename "convnext_celeba_512" indicates that the model has a convnext bakcbone and trained
 # on celeba dataset at 512 resolution.
 hf_hub_download(repo_id="kartiknarayan/SegFace", filename="convnext_celeba_512/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/SegFace", filename="efficientnet_celeba_512/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/SegFace", filename="mobilenet_celeba_512/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/SegFace", filename="resnet_celeba_512/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_celeba_224/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_celeba_256/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_celeba_448/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_celeba_512/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_lapa_224/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_lapa_256/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_lapa_448/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinb_lapa_512/model_299.pt", local_dir="./weights")
-hf_hub_download(repo_id="kartiknarayan/SegFace", filename="swinv2b_celeba_512/model_299.pt", local_dir="./weights")
 ```
 
 # Usage
-Download the trained weights from [HuggingFace](https://huggingface.co/kartiknarayan/SegFace) and ensure the data is downloaded with appropriate directory structure.<br>
+위의 방식대로 [HuggingFace](https://huggingface.co/kartiknarayan/SegFace) 에서 다운한 pretrained weight와 data를 위 구조대로 구성 후 학습 진행.<br>
 
 ### Training
 ```python
@@ -122,19 +110,14 @@ NCCL_P2P_DISABLE=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_nod
     --num_workers 4 \
     --epochs 300
 
-### You can change the model backbone by changing --model
+### backbone 모델 변경 가능. 현재는 정량 지표 상 convnext 채택
 # --model swin_base, swinv2_base, swinv2_small, swinv2_tiny
 # --model convnext_base, convnext_small, convnext_tiny
 # --model mobilenet
 # --model efficientnet
-
-### You can change the dataset on which the model is trained on by changing --dataset and --backbone
-# CelebAMaskHQ: --model segface_celeb --dataset celebamask_hq
-# LaPa: --model segface_lapa --dataset lapa
-# Helen: --model segface_helen --dataset helen
 ```
 The trained models are stored at [LOG_PATH]/<ckpt_path>/<expt_name>.<br>
-<b>NOTE</b>: The training scripts are provided at [SegFace/scripts](scripts).
+<b>NOTE</b>: training scripts : [SegFace/scripts](scripts).
 
 ### Inference
 ```python
@@ -147,15 +130,6 @@ NCCL_P2P_DISABLE=1 CUDA_VISIBLE_DEVICES=0 python /data/knaraya4/SegFace/test.py 
     --input_resolution 512 \
     --test_bs 1 \
     --model_path [LOG_PATH]/<ckpt_path>/<expt_name>/model_299.pt
-
-
-# --dataset celebamask_hq
-# --dataset lapa
-# --dataset helen
-
-# --backbone segface_celeb
-# --backbone segface_lapa
-# --backbone segface_helen
 
 # --model swin_base, swinv2_base, swinv2_small, swinv2_tiny
 # --model convnext_base, convnext_small, convnext_tiny
@@ -178,6 +152,3 @@ If you find *SegFace* useful for your research, please consider citing us:
   year={2025}
 }
 ```
-
-## Contact
-If you have any questions, please create an issue on this repository or contact at knaraya4@jhu.edu
