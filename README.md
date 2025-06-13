@@ -64,12 +64,12 @@ Open Data CelebAMask-HQ:<br>
 
 ### (ex. hair)
 <p width="100%">
-  <img src='https://github.com/user-attachments/assets/0a31b790-b4c2-4b5a-b912-5340709df241' height="50%" width="50%">
+  <img src='https://github.com/user-attachments/assets/0a31b790-b4c2-4b5a-b912-5340709df241' height="50%" width="30%">
 </p>
 
 ### (ex. nose)
 <p width="100%">
-  <img src='https://github.com/user-attachments/assets/6fd45cb4-fb6e-4277-bcfe-bb92f7eacaf2' height="50%" width="50%">
+  <img src='https://github.com/user-attachments/assets/6fd45cb4-fb6e-4277-bcfe-bb92f7eacaf2' height="50%" width="30%">
 </p>
 
 
