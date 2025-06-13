@@ -150,7 +150,7 @@ pip install onnx onnxruntime torchvision
 
 ### CLI command
 ```
-python export_segface.py \
+python export_onnx.py \
   --model-path ../weights/convnext_celeba_512/model_299.pt \
   --onnx-path ./segface.onnx \
   --input-resolution 512 \
