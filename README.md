@@ -54,7 +54,9 @@ Open Data CelebAMask-HQ:<br>
 가령 아래의 이미지에 대해 각 부위에 대한 마스크 별로 필요함. 
 
 (input image)
-
+<p align="center" width="100%">
+  <img src='https://github.com/user-attachments/assets/97855ae0-9285-4e00-9563-bb335479dc2f' height="75%" width="75%">
+</p>
 ![image](https://github.com/user-attachments/assets/97855ae0-9285-4e00-9563-bb335479dc2f=300x)
 
 (input image에 대한 mask-anno)
