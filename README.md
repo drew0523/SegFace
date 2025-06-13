@@ -145,10 +145,24 @@ NCCL_P2P_DISABLE=1 CUDA_VISIBLE_DEVICES=0 python /data/knaraya4/SegFace/test.py 
 pip install onnx onnxruntime torchvision
 ```
 
-[export_onnx.py](https://drive.google.com/file/d/17F9AlpJJ0ChpvuzAtZO1C0aR_Oyljzu3/view?usp=sharing)
+[export_onnx.py](https://drive.google.com/file/d/17F9AlpJJ0ChpvuzAtZO1C0aR_Oyljzu3/view?usp=sharing) 해당 파일을 현재 디렉토리에 업로드
 ![image](https://github.com/user-attachments/assets/c867349b-2f20-4db3-9270-3ff04e947fcf)
 
+### CLI command
+```
+python export_segface.py \
+  --model-path ../weights/convnext_celeba_512/model_299.pt \
+  --onnx-path ./segface.onnx \
+  --input-resolution 512 \
+  --model-backbone convnext_base \
+  --opset-version 11
 
+# input-resolution과 opset-version는 default로 512/11로 설정
+# model-path, onnx-path, backbone만 args로 제공해도 충분
+```
+
+### 실행 결과
+![image](https://github.com/user-attachments/assets/910f7c0d-fa3c-4495-a317-7059606ee774)
 
 
 ## Citation
