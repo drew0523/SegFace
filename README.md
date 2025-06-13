@@ -138,6 +138,15 @@ NCCL_P2P_DISABLE=1 CUDA_VISIBLE_DEVICES=0 python /data/knaraya4/SegFace/test.py 
 ```
 <b>NOTE</b>: The inference script is provided at [SegFace/scripts](scripts).
 
+
+# Torch2onnx
+```
+# onnx export를 위한 추가 라이브러리 설치
+pip install onnx onnxruntime
+
+```
+
+
 ## Citation
 If you find *SegFace* useful for your research, please consider citing us:
 
