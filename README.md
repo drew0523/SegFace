@@ -55,9 +55,8 @@ Open Data CelebAMask-HQ:<br>
 
 (input image)
 <p align="center" width="100%">
-  <img src='https://github.com/user-attachments/assets/97855ae0-9285-4e00-9563-bb335479dc2f' height="75%" width="75%">
+  <img src='https://github.com/user-attachments/assets/97855ae0-9285-4e00-9563-bb335479dc2f' height="30%" width="30%">
 </p>
-![image](https://github.com/user-attachments/assets/97855ae0-9285-4e00-9563-bb335479dc2f=300x)
 
 (input image에 대한 mask-anno)
 
