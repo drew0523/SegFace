@@ -53,21 +53,21 @@ Open Data CelebAMask-HQ:<br>
 
 가령 아래의 이미지에 대해 각 부위에 대한 마스크 별로 필요함. 
 
-(input image)
+### input image
 <p width="100%">
   <img src='https://github.com/user-attachments/assets/97855ae0-9285-4e00-9563-bb335479dc2f' height="30%" width="30%">
 </p>
 
-(input image에 대한 mask-anno)
+### input image에 대한 mask-anno
 
 ![image](https://github.com/user-attachments/assets/a81ab117-bcaa-4314-80e2-1520163afd97)
 
-(ex. hair)
+### (ex. hair)
 <p width="100%">
   <img src='https://github.com/user-attachments/assets/0a31b790-b4c2-4b5a-b912-5340709df241' height="50%" width="50%">
 </p>
 
-(ex. nose)
+### (ex. nose)
 <p width="100%">
   <img src='https://github.com/user-attachments/assets/6fd45cb4-fb6e-4277-bcfe-bb92f7eacaf2' height="50%" width="50%">
 </p>
