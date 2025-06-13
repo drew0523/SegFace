@@ -142,9 +142,13 @@ NCCL_P2P_DISABLE=1 CUDA_VISIBLE_DEVICES=0 python /data/knaraya4/SegFace/test.py 
 # Torch2onnx
 ```
 # onnx export를 위한 추가 라이브러리 설치
-pip install onnx onnxruntime
-
+pip install onnx onnxruntime torchvision
 ```
+
+[export_onnx.py](https://drive.google.com/file/d/17F9AlpJJ0ChpvuzAtZO1C0aR_Oyljzu3/view?usp=sharing)
+![image](https://github.com/user-attachments/assets/c867349b-2f20-4db3-9270-3ff04e947fcf)
+
+
 
 
 ## Citation
